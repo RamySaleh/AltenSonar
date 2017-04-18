@@ -12,8 +12,8 @@
 </head>
 
 <div>
-    <b style="margin-left:30px;font-size:18px">Name : </b><input type="text" id="txtCustomerNameSearch" onkeyup="myFunction()">
-    <b style="margin-left:80px;font-size:18px">Status : </b> <select id="optVehicleStatus">
+    <b style="margin-left:30px;font-size:18px">Name : </b><input type="text" id="txtCustomerNameSearch" onkeyup="filterCustomers()">
+    <b style="margin-left:80px;font-size:18px">Status : </b> <select id="optVehicleStatus" onchange="filterCustomers()">
         <option value="">All</option>
         <option value="true">Connected</option>
         <option value="false">Disconnected</option>
@@ -22,12 +22,12 @@
 <table class="table" id="tblCustomers">
     @foreach (var customer in Model)
     {
-        <tr class="customerRow">
+        <tr class="customerRow" id="@customer.id">
             <td>
                 <div><b>@Html.DisplayNameFor(model => model.Name) : </b>@Html.DisplayFor(modelItem => customer.Name)</div>
                 <div><b>@Html.DisplayNameFor(model => model.Address) : </b>@Html.DisplayFor(modelItem => customer.Address)</div>
                 <div>
-                    <table class="table" style="margin-top:20px">
+                    <table class="table" style="margin-top:20px;margin-left:10px">
                         <tr>
                             <td style="font-weight : bold">
                                 Vehicle Id
@@ -41,14 +41,14 @@
                         </tr>
                         @foreach (var vehicle in customer.OwnedVehicles)
                         {
-                            <tr>
+                            <tr class="vehicleRow" data-customer="@customer.id">
                                 <td>
                                     @Html.DisplayFor(modelItem => vehicle.id)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => vehicle.RegisterationNumber)
                                 </td>
-                                <td id="@vehicle.id" class="fa fa-circle-o-notch fa-spin" style="font-size:16px"></td>
+                                <td id="@vehicle.id" class="fa fa-circle-o-notch fa-spin" style="font-size:16px;margin-left:25px" data-status="@vehicle.Status"></td>
                             </tr>
                         }
                     </table>
@@ -93,28 +93,51 @@
     function updateStatusOnDashboard(vehicleId,status){
         var vehicleStatusCellId = '#' + vehicleId;
         $(vehicleStatusCellId)[0].className = status ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove';
+        $(vehicleStatusCellId)[0].setAttribute("data-status",status);  
     }
-
-    function myFunction() {
+    
+    function filterCustomers(){
         // Declare variables
-        var input, filter, table, tr, td, i;
+        var input, namefilter,statusFilter, tr, nameTd, statusTd, childrenRows, emptyRow;  
         input = document.getElementById("txtCustomerNameSearch");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("tblCustomers");
-        tr = $('.customerRow');
+        namefilter = input.value.toUpperCase();
+        input = document.getElementById("optVehicleStatus");
+        statusFilter = input.value.toUpperCase();
 
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
+        // Loop through all table rows, and hide those who don't match the search query        
+        tr = $('.customerRow');
+        for (var i = 0; i < tr.length; i++) {
+            nameTd = tr[i].getElementsByTagName("td")[0];
+            childrenRows = tr[i].getElementsByTagName("tr");
+            emptyRow = true;
+            if (nameTd.innerHTML.toUpperCase().indexOf(namefilter) > -1) {
+                for (var j = 0; j < childrenRows.length; j++) {
+                    statusTd = childrenRows[j].getElementsByTagName("td")[2];
+                    if (statusTd) {
+                        var status = statusTd.getAttribute("data-status");
+                        if (status) {
+                            if (status.toUpperCase() == statusFilter || statusFilter == "") {
+                                childrenRows[j].style.display = "";
+                                emptyRow = false;
+                            } else {
+                                childrenRows[j].style.display = "none";
+                            }
+                        }                  
+                    }
+                }
+                // Hide customers who have no connected cars
+                if (emptyRow) {
                     tr[i].style.display = "none";
                 }
+                else{
+                    tr[i].style.display = "";
+                }
             }
-        }
-    }
+            else {
+                tr[i].style.display = "none";
+            }
+        }    
+    }   
 </script>
 <style>
     #txtCustomerNameSearch {
