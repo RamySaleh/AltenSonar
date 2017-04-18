@@ -1,82 +1,79 @@
 ﻿@model IEnumerable<AltenSonar.Core.Entities.Customer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Dashboard</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<table class="table">
-   
 
-@foreach (var customer in Model)
-{
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th></th>
-    </tr>
-
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => customer.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => customer.Address)
-        </td>    
-    </tr>
-    <tr>
-        <td style="font-weight : bold">
-            Vehicle Id
-        </td>
-        <td style="font-weight : bold">
-            Registration Number
-        </td>
-        <td style="font-weight : bold">
-            Connected
-        </td>
-    </tr>
-    foreach (var vehicle in customer.OwnedVehicles)
+<div>
+    <b style="margin-left:30px;font-size:18px">Name : </b><input type="text" id="txtCustomerNameSearch" onkeyup="myFunction()">
+    <b style="margin-left:80px;font-size:18px">Status : </b> <select id="optVehicleStatus">
+        <option value="">All</option>
+        <option value="true">Connected</option>
+        <option value="false">Disconnected</option>
+    </select>
+</div>
+<table class="table" id="tblCustomers">
+    @foreach (var customer in Model)
     {
-        <tr>
+        <tr class="customerRow">
             <td>
-                @Html.DisplayFor(modelItem => vehicle.id)
+                <div><b>@Html.DisplayNameFor(model => model.Name) : </b>@Html.DisplayFor(modelItem => customer.Name)</div>
+                <div><b>@Html.DisplayNameFor(model => model.Address) : </b>@Html.DisplayFor(modelItem => customer.Address)</div>
+                <div>
+                    <table class="table" style="margin-top:20px">
+                        <tr>
+                            <td style="font-weight : bold">
+                                Vehicle Id
+                            </td>
+                            <td style="font-weight : bold">
+                                Registration Number
+                            </td>
+                            <td style="font-weight : bold">
+                                Connected
+                            </td>
+                        </tr>
+                        @foreach (var vehicle in customer.OwnedVehicles)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => vehicle.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => vehicle.RegisterationNumber)
+                                </td>
+                                <td id="@vehicle.id" class="fa fa-circle-o-notch fa-spin" style="font-size:16px"></td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => vehicle.RegisterationNumber)
-            </td>
-            <td id="@vehicle.id" class="fa fa-circle-o-notch fa-spin" style="font-size:16px">
-            </td>
-        </tr>
+        </tr>        
     }
-}
 
 </table>
 
-<script type="text/javascript">    
-    $( document ).ready(function() {       
+<script type="text/javascript">
+
+    $( document ).ready(function() {
         CheckVehiclesConnection();
         setInterval(CheckVehiclesConnection, 60000);
     });
 
-    function CheckVehiclesConnection() {        
+    function CheckVehiclesConnection() {
         var model = @Html.Raw(Json.Encode(Model));
-        model.forEach(checkConnection);        
+        model.forEach(checkConnection);
     }
 
-    function checkConnection(customer, index, arr) {        
-        for (i = 0; i < customer.OwnedVehicles.length; i++) { 
+    function checkConnection(customer, index, arr) {
+        for (i = 0; i < customer.OwnedVehicles.length; i++) {
 
             var currentVehicle = customer.OwnedVehicles[i];
 
@@ -98,4 +95,41 @@
         $(vehicleStatusCellId)[0].className = status ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove';
     }
 
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("txtCustomerNameSearch");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tblCustomers");
+        tr = $('.customerRow');
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
 </script>
+<style>
+    #txtCustomerNameSearch {
+        width: 100%; /* Full-width */
+        font-size: 14px; /* Increase font-size */
+        padding: 5px 18px 5px 38px; /* Add some padding */
+        border: 1px solid #ddd; /* Add a grey border */
+        margin-bottom: 12px; /* Add some space below the input */
+    }
+
+    #optVehicleStatus{
+        width: 100%; /* Full-width */
+        font-size: 16px; /* Increase font-size */
+        padding: 5px 18px 5px 45px; /* Add some padding */
+        border: 1px solid #ddd; /* Add a grey border */
+        margin-bottom: 12px; /* Add some space below the input */
+    }
+</style>
