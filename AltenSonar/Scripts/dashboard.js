@@ -3,7 +3,6 @@
     $.ajax({
         url: 'http://localhost:6514/api/ConnectionChecker',
         type: 'POST',
-        //dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify(customers),
         success: function (data) {            
@@ -13,24 +12,6 @@
             alert(x + '\n' + y + '\n' + z);
         }
     });
-}
-
-function checkConnection(customer, index, arr) {
-    for (i = 0; i < customer.OwnedVehicles.length; i++) {
-
-        var currentVehicle = customer.OwnedVehicles[i];
-
-        currentVehicle.Status = isVehicleConnected(currentVehicle);
-
-        updateStatusOnDashboard(currentVehicle.id, currentVehicle.Status);
-    }
-}
-
-function isVehicleConnected(vehicle) {
-    // Generate random status to simulate the connection to the actual vehicles
-    var randomNumber = Math.floor((Math.random() * 10) + 1);
-    var randomStatus = (randomNumber % 2) == 0;
-    return randomStatus;
 }
 
 function updateStatusOnDashboard(customers) {
