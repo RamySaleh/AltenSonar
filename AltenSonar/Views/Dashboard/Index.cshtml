@@ -1,0 +1,63 @@
+﻿@model IEnumerable<AltenSonar.Core.Entities.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+   
+
+@foreach (var customer in Model)
+{
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => customer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => customer.Address)
+        </td>    
+    </tr>
+    <tr>
+        <td style="font-weight : bold">
+            Vehicle Id
+        </td>
+        <td style="font-weight : bold">
+            Registration Number
+        </td>
+        <td style="font-weight : bold">
+            Status
+        </td>
+    </tr>
+    foreach (var vehicle in customer.OwnedVehicles)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => vehicle.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => vehicle.RegisterationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => vehicle.Status)
+            </td>
+        </tr>
+    }
+}
+
+</table>

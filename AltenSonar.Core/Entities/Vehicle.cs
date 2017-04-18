@@ -11,5 +11,7 @@ namespace AltenSonar.Core.Entities
         public string id { get; set; }
 
         public string RegisterationNumber { get; set; }
+
+        public bool Status { get; set; }
     }
 }
