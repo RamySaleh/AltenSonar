@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ConnectionProperties.cs" />
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Interfaces\IConnectionChecker.cs" />
     <Compile Include="Interfaces\ICustomersRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

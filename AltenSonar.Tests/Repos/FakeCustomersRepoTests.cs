@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AltenSonar.Infrastructure;
+using AltenSonar.Infrastructure.Repos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AltenSonar.Tests.Repos

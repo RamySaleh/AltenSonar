@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AltenSonar.Core.Entities;
 using AltenSonar.Core.Interfaces;
 
-namespace AltenSonar.Infrastructure
+namespace AltenSonar.Infrastructure.Repos
 {
     public class CustomersRepo : ICustomersRepo
     {

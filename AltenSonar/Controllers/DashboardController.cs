@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using AltenSonar.Core.Entities;
 using AltenSonar.Models;
-using AltenSonar.Infrastructure;
+using AltenSonar.Infrastructure.Repos;
 
 namespace AltenSonar.Controllers
 {
