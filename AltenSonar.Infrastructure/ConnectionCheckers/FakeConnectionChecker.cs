@@ -12,7 +12,17 @@ namespace AltenSonar.Infrastructure.ConnectionCheckers
     {
         public List<Customer> CheckVehiclesConnection(List<Customer> customers)
         {
-            throw new NotImplementedException();
+            foreach (var vehicle in customers.SelectMany(customer => customer.OwnedVehicles))
+            {
+                vehicle.Status = CheckConnection(vehicle);
+            }
+
+            return customers;
+        }
+
+        private bool CheckConnection(Vehicle vehicle)
+        {
+            return true;
         }
     }
 }
