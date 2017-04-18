@@ -39,10 +39,6 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -89,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Repos\FakeCustomersRepoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -119,6 +116,14 @@
     <None Include="Scripts\jquery-3.1.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AltenSonar.Core\AltenSonar.Core.csproj">
+      <Project>{a9dd6ff1-77b2-4489-8881-fa5ec4f24ba5}</Project>
+      <Name>AltenSonar.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AltenSonar.Infrastructure\AltenSonar.Infrastructure.csproj">
+      <Project>{86f7070f-e59f-42a6-a782-6cf8c7a376e8}</Project>
+      <Name>AltenSonar.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AltenSonar\AltenSonar.csproj">
       <Project>{E4ABDFFF-EFBC-4A9A-8222-9940878EBE8D}</Project>
       <Name>AltenSonar</Name>
