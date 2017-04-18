@@ -41,7 +41,7 @@
                         </tr>
                         @foreach (var vehicle in customer.OwnedVehicles)
                         {
-                            <tr class="vehicleRow" data-customer="@customer.id">
+                            <tr class="vehicleRow">
                                 <td>
                                     @Html.DisplayFor(modelItem => vehicle.id)
                                 </td>
@@ -98,45 +98,68 @@
     
     function filterCustomers(){
         // Declare variables
-        var input, namefilter,statusFilter, tr, nameTd, statusTd, childrenRows, emptyRow;  
+        var input, namefilter,statusFilter, nameCell, statusCell, 
+            customersRows, currentCustomerRow, vehiclesRows, currentVehicleRow, isRowEmpty;  
+
         input = document.getElementById("txtCustomerNameSearch");
         namefilter = input.value.toUpperCase();
         input = document.getElementById("optVehicleStatus");
         statusFilter = input.value.toUpperCase();
 
         // Loop through all table rows, and hide those who don't match the search query        
-        tr = $('.customerRow');
-        for (var i = 0; i < tr.length; i++) {
-            nameTd = tr[i].getElementsByTagName("td")[0];
-            childrenRows = tr[i].getElementsByTagName("tr");
-            emptyRow = true;
-            if (nameTd.innerHTML.toUpperCase().indexOf(namefilter) > -1) {
-                for (var j = 0; j < childrenRows.length; j++) {
-                    statusTd = childrenRows[j].getElementsByTagName("td")[2];
-                    if (statusTd) {
-                        var status = statusTd.getAttribute("data-status");
+        customersRows = $('.customerRow');
+        for (var i = 0; i < customersRows.length; i++) {
+
+            currentCustomerRow = customersRows[i];
+            nameCell = currentCustomerRow.getElementsByTagName("td")[0];
+            vehiclesRows = currentCustomerRow.getElementsByTagName("tr");
+            isRowEmpty = true;
+
+            // Check if the customer name cell contains the filtered name text
+            if (stringContains(nameCell,namefilter)) {
+                for (var j = 0; j < vehiclesRows.length; j++) {
+
+                    currentVehicleRow = vehiclesRows[j];
+                    statusCell = currentVehicleRow.getElementsByTagName("td")[2];
+
+                    if (statusCell) {
+                        var status = statusCell.getAttribute("data-status");
                         if (status) {
+                            // Check if the vehicle status is the same as the filtered choice
                             if (status.toUpperCase() == statusFilter || statusFilter == "") {
-                                childrenRows[j].style.display = "";
-                                emptyRow = false;
+                                show(currentVehicleRow);
+                                // At least one vehicle is connected
+                                isRowEmpty = false;
                             } else {
-                                childrenRows[j].style.display = "none";
+                                hide(currentVehicleRow);
                             }
                         }                  
                     }
                 }
                 // Hide customers who have no connected cars
-                if (emptyRow) {
-                    tr[i].style.display = "none";
+                if (isRowEmpty) {
+                    hide(currentCustomerRow);
                 }
                 else{
-                    tr[i].style.display = "";
+                    show(currentCustomerRow);
                 }
             }
             else {
-                tr[i].style.display = "none";
+                hide(currentCustomerRow);
             }
-        }    
+        }
+
+        function hide(item){
+            item.style.display = "none";
+        }
+
+        function show(item){
+            item.style.display = "";
+        }
+
+        function stringContains(string, filter){
+            return nameCell.innerHTML.toUpperCase().indexOf(namefilter) > -1;
+        }
     }   
 </script>
 <style>
