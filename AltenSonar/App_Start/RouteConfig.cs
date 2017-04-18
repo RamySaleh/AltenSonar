@@ -13,6 +13,12 @@ namespace AltenSonar
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // routes.MapRoute(
+            //    name: "WebApi",
+            //    url: "{controller}/{action}",//"Api/CheckConnection",
+            //    defaults: new { controller = "ConnectionCheckerApi", action = "CheckConnectionStatus", id = UrlParameter.Optional }
+            //);           
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

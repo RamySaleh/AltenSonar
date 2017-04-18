@@ -1,4 +1,21 @@
-﻿function checkConnection(customer, index, arr) {
+﻿function checkVehiclesConnectionStatus(customers) {
+    jQuery.support.cors = true;
+    $.ajax({
+        url: 'http://localhost:6514/api/ConnectionChecker',
+        type: 'POST',
+        //dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(customers),
+        success: function (data) {            
+            updateStatusOnDashboard(data);
+        },
+        error: function (x, y, z) {
+            alert(x + '\n' + y + '\n' + z);
+        }
+    });
+}
+
+function checkConnection(customer, index, arr) {
     for (i = 0; i < customer.OwnedVehicles.length; i++) {
 
         var currentVehicle = customer.OwnedVehicles[i];
@@ -16,7 +33,17 @@ function isVehicleConnected(vehicle) {
     return randomStatus;
 }
 
-function updateStatusOnDashboard(vehicleId, status) {
+function updateStatusOnDashboard(customers) {
+    var currentVehicle;
+    for (var i = 0; i < customers.length; i++) {
+        for (var j = 0; j < customers[i].OwnedVehicles.length; j++) {
+            currentVehicle = customers[i].OwnedVehicles[j];
+            updateVehicleStatusOnDashboard(currentVehicle.id, currentVehicle.Status);
+        }
+    }
+}
+
+function updateVehicleStatusOnDashboard(vehicleId, status) {
     var vehicleStatusCellId = '#' + vehicleId;
     $(vehicleStatusCellId)[0].className = status ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove';
     $(vehicleStatusCellId)[0].setAttribute("data-status", status);

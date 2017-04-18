@@ -70,7 +70,8 @@
 
     function CheckVehiclesConnection() {
         var model = @Html.Raw(Json.Encode(Model));
-        model.forEach(checkConnection);
+        //model.forEach(checkConnection);
+        checkVehiclesConnectionStatus(model);
     }
 </script>
 <style>

@@ -5,6 +5,7 @@ using System.Web;
 using Autofac;
 using AltenSonar.Infrastructure.Repos;
 using AltenSonar.Core.Interfaces;
+using AltenSonar.Infrastructure.ConnectionCheckers;
 
 namespace AltenSonar.DependencyInjection
 {
@@ -23,6 +24,7 @@ namespace AltenSonar.DependencyInjection
         {
             var builder = new ContainerBuilder();
             builder.Register(c => new DocumentDBCustomersRepo()).As<ICustomersRepo>().SingleInstance();
+            builder.Register(c => new FakeConnectionChecker()).As<IConnectionChecker>();
             iocContainer = builder.Build();
         }
     }
