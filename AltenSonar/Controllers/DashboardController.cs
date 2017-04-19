@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using AltenSonar.Core.Entities;
 using AltenSonar.Core.Interfaces;
-using AltenSonar.Models;
 using AltenSonar.Infrastructure.Repos;
 using AltenSonar.DependencyInjection;
 using Autofac;

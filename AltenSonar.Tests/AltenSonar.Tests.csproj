@@ -85,7 +85,6 @@
   <ItemGroup>
     <Compile Include="Controllers\DashboardControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Repos\DocumentDBRepoTests.cs" />
     <Compile Include="Repos\FakeCustomersRepoTests.cs" />
   </ItemGroup>
