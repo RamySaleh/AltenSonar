@@ -25,6 +25,7 @@ namespace AltenSonar.Infrastructure.ConnectionCheckers
 
         private bool CheckConnection(Vehicle vehicle)
         {            
+            // Generate random status
             var randomNumber = rnd.Next(1, 100);
             var randomStatus = (randomNumber % 2) == 0;
 
