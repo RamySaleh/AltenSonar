@@ -14,12 +14,27 @@ using AltenSonar.DependencyInjection;
 namespace AltenSonar.Controllers
 {
     public class DashboardController : Controller
-    {       
+    {
         public ActionResult Index()
         {
-            var customersRepo = IocContainer.Resolve<ICustomersRepo>();                       
+            var customersRepo = IocContainer.Resolve<ICustomersRepo>();
+            var customers = customersRepo.GetCustomers();
+            return View(customers);
+        }
 
-            return View(customersRepo.GetCustomers());
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            Exception ex = filterContext.Exception;
+            filterContext.ExceptionHandled = true;
+
+            var model = new HandleErrorInfo(filterContext.Exception, "Controller", "Action");
+            
+            filterContext.Result = new ViewResult()
+            {
+                ViewName = "Error",
+                ViewData = new ViewDataDictionary(model)
+            };
+
         }
     }
 }
