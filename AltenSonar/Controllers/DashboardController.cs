@@ -20,15 +20,6 @@ namespace AltenSonar.Controllers
             var customersRepo = IocContainer.Resolve<ICustomersRepo>();                       
 
             return View(customersRepo.GetCustomers());
-        }     
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                
-            }
-            base.Dispose(disposing);
         }
     }
 }

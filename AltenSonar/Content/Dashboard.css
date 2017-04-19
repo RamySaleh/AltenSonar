@@ -1,0 +1,29 @@
+﻿#txtCustomerNameSearch {
+    width: 100%; /* Full-width */
+    font-size: 14px; /* Increase font-size */
+    padding: 5px 18px 5px 38px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+#optVehicleStatus {
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 5px 18px 5px 45px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+.filterLabelFont{
+    font-size:18px
+}
+
+.vehicleTable{
+    margin-top:20px;
+    margin-left:10px
+}
+
+.vehicle-td{
+    font-size:16px;
+    margin-left:25px
+}

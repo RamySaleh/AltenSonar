@@ -9,7 +9,7 @@
             updateStatusOnDashboard(data);
         },
         error: function (x, y, z) {
-            alert(x + '\n' + y + '\n' + z);
+            console.log(x + '\n' + y + '\n' + z);
         }
     });
 }
@@ -26,7 +26,7 @@ function updateStatusOnDashboard(customers) {
 
 function updateVehicleStatusOnDashboard(vehicleId, status) {
     var vehicleStatusCellId = '#' + vehicleId;
-    $(vehicleStatusCellId)[0].className = status ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove';
+    $(vehicleStatusCellId)[0].className = status ? 'glyphicon glyphicon-ok vehicle-td' : 'glyphicon glyphicon-remove vehicle-td';    
     $(vehicleStatusCellId)[0].setAttribute("data-status", status);
 }
 
