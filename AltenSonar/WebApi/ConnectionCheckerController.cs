@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using AltenSonar.DependencyInjection;
-using Autofac;
 using AltenSonar.Core.Interfaces;
 
 namespace AltenSonar.WebApi
@@ -16,7 +15,7 @@ namespace AltenSonar.WebApi
         [HttpPost]
         public List<Customer> CheckConnectionStatus(List<Customer> customers)
         {
-            var connectionChecker = AutoFacDependencyResolver.IocContainer.Resolve<IConnectionChecker>();
+            var connectionChecker = IocContainer.Resolve<IConnectionChecker>();
 
             customers = connectionChecker.CheckVehiclesConnection(customers);
 

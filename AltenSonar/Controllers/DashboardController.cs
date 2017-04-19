@@ -10,7 +10,6 @@ using AltenSonar.Core.Entities;
 using AltenSonar.Core.Interfaces;
 using AltenSonar.Infrastructure.Repos;
 using AltenSonar.DependencyInjection;
-using Autofac;
 
 namespace AltenSonar.Controllers
 {
@@ -18,7 +17,7 @@ namespace AltenSonar.Controllers
     {       
         public ActionResult Index()
         {
-            var customersRepo = AutoFacDependencyResolver.IocContainer.Resolve<ICustomersRepo>();                       
+            var customersRepo = IocContainer.Resolve<ICustomersRepo>();                       
 
             return View(customersRepo.GetCustomers());
         }     

@@ -45,6 +45,7 @@
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Interfaces\IConnectionChecker.cs" />
     <Compile Include="Interfaces\ICustomersRepo.cs" />
+    <Compile Include="Interfaces\IDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
