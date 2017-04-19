@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="652e63db-647b-45a1-81d8-93b3455f7d38" name="Dashboard" linkedPackageId="f6dbe02d-2ff7-4157-bc73-fd2397e7c307" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9b5aa190-d252-40a1-9a18-86d24e6ec9da" name="DashboardController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f81fdaf2-c870-47d2-b456-b64fce738d7d" />
+        <targetEnds>
+          <association Id="9572f33c-3ccb-4c5d-a1e7-e58bcb385c51" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="2cdf4cf5-fef3-4e6b-8ef0-684a0d8e6b97" LastKnownName="DocumentDBCustomersRepo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="997590d6-0deb-4193-a1c2-09d42b7b4101" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="07770948-53ae-458a-8773-ddf90500c6af" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="24200a9f-a812-480d-a00e-50be7285c1b6" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f20d7f62-57e8-4677-b375-0cb799b05448" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2ce938bd-9323-4896-a06f-7bf80c7a6d84" />
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation Id="cbcdfd53-a804-477a-9dd1-e9b0e001ec35" name="Index" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b7469e58-2c98-46aa-9fb4-0c52c3cafa4a" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2cdf4cf5-fef3-4e6b-8ef0-684a0d8e6b97" name="DocumentDBCustomersRepo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2f68729d-d819-40b1-b407-309b58c9bf5a" />
+        <suppliersInternal>
+          <interfaceRealization Id="c68f0351-5d52-4582-ad7c-418404da5aff">
+            <interfaceMoniker Id="f7191717-23ea-4ddb-a267-61cc7f448081" LastKnownName="ICustomersRepo" />
+            <elementDefinition Id="5acd5dfd-ab21-40e6-b125-3f94cfd7709f" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="79d2a43f-2c4b-4e1f-8e02-02331ac1a2f1" name="GetCustomers" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4fa0e619-7883-41e2-9a15-b663b44602f1" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="f7191717-23ea-4ddb-a267-61cc7f448081" name="ICustomersRepo" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5ccb76e0-84c1-4e85-b634-ae7f767f5ed4" />
+        <ownedOperations>
+          <operation Id="ce4a0c41-fee0-43b0-8726-5789777824fc" name="GetCustomers" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="16d52d16-5dde-454e-a42b-7f70d226af64" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="f6dbe02d-2ff7-4157-bc73-fd2397e7c307" name="AltenSonar.Modeling">
+    <elementDefinition Id="8ef7cb2f-6a18-4d09-ba75-cde8ced82a91" />
+    <profileInstances>
+      <packageHasProfileInstances Id="7defa0dc-6870-4c1d-b727-78f9e2566e12">
+        <profileInstance Id="1ee6e300-0724-4288-ba0f-317c0fa9fdb9" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="657ca13d-ed52-494d-811e-31051bc8a20f">
+        <profileInstance Id="d2dbe65c-d206-4823-aebc-854d61a38291" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

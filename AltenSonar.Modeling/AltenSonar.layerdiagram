@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="56635115-dd1f-4009-8191-67763cacadeb" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="ced30c80-3312-4b5c-85c1-4342c7b6b665" name="Core">
+      <references>
+        <reference Id="e5ea3158-4644-4e00-aa58-cfec868128c9" name="AltenSonar.Core">
+          <ArtifactNode Label="AltenSonar.Core" Category="CodeSchema_Project" Id="(Assembly=../AltenSonar.Core/AltenSonar.Core.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=AltenSonar.Core)" Label="AltenSonar.Core.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="862a6614-09da-4bdd-952c-e0bf96401cdf" name="Infrastructure">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="762712ee-624f-410a-a777-b0b959e7bdd0" direction="Forward">
+          <layerMoniker Id="ced30c80-3312-4b5c-85c1-4342c7b6b665" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="8b3fbd46-a57d-4f9f-883b-1ff6c02a9a8b" name="AltenSonar.Infrastructure">
+          <ArtifactNode Label="AltenSonar.Infrastructure" Category="CodeSchema_Project" Id="(Assembly=../AltenSonar.Infrastructure/AltenSonar.Infrastructure.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=AltenSonar.Infrastructure)" Label="AltenSonar.Infrastructure.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="c6a11b76-c8df-4ee5-9ea8-621b002cdef6" name="UI">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="3466753f-950f-44f3-8852-f1e303df014d" direction="Forward">
+          <layerMoniker Id="862a6614-09da-4bdd-952c-e0bf96401cdf" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="7c909f14-b612-4d24-bf75-74cf6b47bf58" direction="Forward">
+          <layerMoniker Id="ced30c80-3312-4b5c-85c1-4342c7b6b665" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="a9bba161-8ea4-4ec4-92f6-d9effec094f9" name="AltenSonar">
+          <ArtifactNode Label="AltenSonar" Category="CodeSchema_Project" Id="(Assembly=../AltenSonar/AltenSonar.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=AltenSonar)" Label="AltenSonar.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

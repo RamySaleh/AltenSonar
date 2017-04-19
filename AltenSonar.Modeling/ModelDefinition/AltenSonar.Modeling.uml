@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="8ef7cb2f-6a18-4d09-ba75-cde8ced82a91"
+  name="AltenSonar.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="f81fdaf2-c870-47d2-b456-b64fce738d7d"
+        name="DashboardController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="2ce938bd-9323-4896-a06f-7bf80c7a6d84"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="2f68729d-d819-40b1-b407-309b58c9bf5a"
+              LastKnownName="DocumentDBCustomersRepo"
+              LastKnownLocation="AltenSonar.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="07770948-53ae-458a-8773-ddf90500c6af"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f20d7f62-57e8-4677-b375-0cb799b05448"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="b7469e58-2c98-46aa-9fb4-0c52c3cafa4a"
+            name="Index"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2f68729d-d819-40b1-b407-309b58c9bf5a"
+        name="DocumentDBCustomersRepo"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="5acd5dfd-ab21-40e6-b125-3f94cfd7709f">
+            <interfaceMoniker
+              Id="5ccb76e0-84c1-4e85-b634-ae7f767f5ed4"
+              LastKnownName="ICustomersRepo"
+              LastKnownLocation="AltenSonar.Modeling.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="4fa0e619-7883-41e2-9a15-b663b44602f1"
+            name="GetCustomers"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="5ccb76e0-84c1-4e85-b634-ae7f767f5ed4"
+        name="ICustomersRepo"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="16d52d16-5dde-454e-a42b-7f70d226af64"
+            name="GetCustomers"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="26ce0c7d-cb1a-4f4c-bb64-11c8e3e5aa0c"
+        name="AltenSonar"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="46f0eb23-0ad0-45ff-ab69-9e4b0025f484"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="259074a3-c92f-410b-9ec3-0f90e0fb2e48"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a4b4b114-e76b-462a-927f-a9e936afeb61"
+                  LastKnownName="Get customers from database"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="a4b4b114-e76b-462a-927f-a9e936afeb61"
+            name="Get customers from database"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="dc30c792-75cc-4e01-8300-95d5ebf351d0"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ece202a7-c261-46d5-a5d2-cbb5c33d1016"
+                  LastKnownName="view customers and their vehicles on the dashboard"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="ece202a7-c261-46d5-a5d2-cbb5c33d1016"
+            name="view customers and their vehicles on the dashboard"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fde4c34e-ee13-4b20-882f-edd9051b69cf"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a41bfa4a-252b-4a9f-8888-2b82f2a779fc"
+                  LastKnownName="Loop on the vehicles and check their connection status"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="a41bfa4a-252b-4a9f-8888-2b82f2a779fc"
+            name="Loop on the vehicles and check their connection status"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c0ae97a0-dc18-440d-b765-01d4f2196acc"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2215c6de-4da1-44cc-9bf3-6f06b8f585b6"
+                  LastKnownName="Check the connection status"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="2215c6de-4da1-44cc-9bf3-6f06b8f585b6"
+            name="Check the connection status"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="604f88ee-f1c3-4914-96bf-a2f4d93378a7"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="3d0c681c-5e1d-4b94-9b65-8552ea5a18a0"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="3d0c681c-5e1d-4b94-9b65-8552ea5a18a0"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ed235c2c-1445-4858-961b-8fb9c582b46a"
+                guard="Connected"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="bb17c3d2-35b1-469c-b273-859789dbe5c2"
+                  LastKnownName="Show connected icon on the dashboard"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e7b32130-d5d2-47c8-ba3b-72a639354aa8"
+                guard="Disconnected"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1623cac6-ca9f-44ff-b07a-53951f18b808"
+                  LastKnownName="Show disconnected icon on the dashboard"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="bb17c3d2-35b1-469c-b273-859789dbe5c2"
+            name="Show connected icon on the dashboard"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2db06890-f281-4fb7-ade0-82d5a0c6f1d0"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="29f2aaec-6ab5-48e1-9002-9eeb24cb9312"
+                  LastKnownName="Update last refresh time"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="1623cac6-ca9f-44ff-b07a-53951f18b808"
+            name="Show disconnected icon on the dashboard"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7f96c058-6ca4-410e-9747-e16f373753ae"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="29f2aaec-6ab5-48e1-9002-9eeb24cb9312"
+                  LastKnownName="Update last refresh time"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="29f2aaec-6ab5-48e1-9002-9eeb24cb9312"
+            name="Update last refresh time"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="62c2446c-254b-4488-a7b0-55091cceaca6"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a41bfa4a-252b-4a9f-8888-2b82f2a779fc"
+                  LastKnownName="Loop on the vehicles and check their connection status"
+                  LastKnownLocation="AltenSonar.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

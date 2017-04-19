@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="6e27bcdb-d773-4586-afec-d2310d18fa88" name="AltenSonar" linkedPackageId="cd5b4c16-0a9d-4c97-92fa-e1d407dc2df7" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="c3e481bd-b631-4feb-8814-f7662a8779db">
+      <profileInstance Id="cc10c53b-0bf0-4ebc-abf6-ad554b0468b9" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="826067a4-81d9-4852-9fb7-b32ba71275c2">
+      <profileInstance Id="2b39650f-ad81-4e1d-8f92-bb96d8b62346" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="a0aada15-8ebb-44b0-a248-5196c53b23ad" name="AltenSonar" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="26ce0c7d-cb1a-4f4c-bb64-11c8e3e5aa0c" />
+        <nodes>
+          <initialNode Id="2c1761c7-d73b-45ad-bddc-a11b2a58cba9" name="Initial1" isLeaf="false">
+            <elementDefinition Id="46f0eb23-0ad0-45ff-ab69-9e4b0025f484" />
+            <flowNodeTargets>
+              <controlFlow Id="2195d436-1d9b-47d0-9562-fa540692e283" isLeaf="false">
+                <opaqueActionMoniker Id="354be928-ca46-47c7-b4d1-b5fc67f6d724" LastKnownName="Get customers from database" />
+                <elementDefinition Id="259074a3-c92f-410b-9ec3-0f90e0fb2e48" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="354be928-ca46-47c7-b4d1-b5fc67f6d724" name="Get customers from database" isLeaf="false">
+            <elementDefinition Id="a4b4b114-e76b-462a-927f-a9e936afeb61" />
+            <flowNodeTargets>
+              <controlFlow Id="be54a9e4-da83-4e97-a954-39eb2fd69ff9" isLeaf="false">
+                <opaqueActionMoniker Id="96ee21fe-80e7-4ad2-8cd0-4114961dc9a6" LastKnownName="view customers and their vehicles on the dashboard" />
+                <elementDefinition Id="dc30c792-75cc-4e01-8300-95d5ebf351d0" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="96ee21fe-80e7-4ad2-8cd0-4114961dc9a6" name="view customers and their vehicles on the dashboard" isLeaf="false">
+            <elementDefinition Id="ece202a7-c261-46d5-a5d2-cbb5c33d1016" />
+            <flowNodeTargets>
+              <controlFlow Id="a15a2505-6d26-4b8c-a427-af035225c9dc" isLeaf="false">
+                <opaqueActionMoniker Id="d880763d-450c-400b-9a9f-bcb4c3d66921" LastKnownName="Loop on the vehicles and check their connection status" />
+                <elementDefinition Id="fde4c34e-ee13-4b20-882f-edd9051b69cf" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="d880763d-450c-400b-9a9f-bcb4c3d66921" name="Loop on the vehicles and check their connection status" isLeaf="false">
+            <elementDefinition Id="a41bfa4a-252b-4a9f-8888-2b82f2a779fc" />
+            <flowNodeTargets>
+              <controlFlow Id="24de870c-89b1-4f3a-b519-65ffbe1abce7" isLeaf="false">
+                <opaqueActionMoniker Id="a52761f1-3d96-44c0-813f-38d749bbbc2e" LastKnownName="Check the connection status" />
+                <elementDefinition Id="c0ae97a0-dc18-440d-b765-01d4f2196acc" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="a52761f1-3d96-44c0-813f-38d749bbbc2e" name="Check the connection status" isLeaf="false">
+            <elementDefinition Id="2215c6de-4da1-44cc-9bf3-6f06b8f585b6" />
+            <flowNodeTargets>
+              <controlFlow Id="8fba5eac-0c5c-4512-9160-30c2e254267d" isLeaf="false">
+                <decisionNodeMoniker Id="c5fac18a-9851-4d1a-9b14-3019493377a8" LastKnownName="Decision1" />
+                <elementDefinition Id="604f88ee-f1c3-4914-96bf-a2f4d93378a7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="c5fac18a-9851-4d1a-9b14-3019493377a8" name="Decision1" isLeaf="false">
+            <elementDefinition Id="3d0c681c-5e1d-4b94-9b65-8552ea5a18a0" />
+            <flowNodeTargets>
+              <controlFlow Id="8e1ae0c8-575c-4dd6-ab2a-c1f978190fba" guard="Connected" isLeaf="false">
+                <opaqueActionMoniker Id="14ec55d2-cb19-4134-ad52-f2ee23bbee22" LastKnownName="Show connected icon on the dashboard" />
+                <elementDefinition Id="ed235c2c-1445-4858-961b-8fb9c582b46a" />
+              </controlFlow>
+              <controlFlow Id="d3d10ffb-5abb-4e4f-84c4-6566380da51a" guard="Disconnected" isLeaf="false">
+                <opaqueActionMoniker Id="d5d4fdb3-39ff-4089-a155-f91fe8abb0ce" LastKnownName="Show disconnected icon on the dashboard" />
+                <elementDefinition Id="e7b32130-d5d2-47c8-ba3b-72a639354aa8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="14ec55d2-cb19-4134-ad52-f2ee23bbee22" name="Show connected icon on the dashboard" isLeaf="false">
+            <elementDefinition Id="bb17c3d2-35b1-469c-b273-859789dbe5c2" />
+            <flowNodeTargets>
+              <controlFlow Id="d958baa4-3b7e-4bf7-970a-4901d4c81b10" isLeaf="false">
+                <opaqueActionMoniker Id="a56f1f12-b75b-4eee-9869-fd0ab279a707" LastKnownName="Update last refresh time" />
+                <elementDefinition Id="2db06890-f281-4fb7-ade0-82d5a0c6f1d0" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="d5d4fdb3-39ff-4089-a155-f91fe8abb0ce" name="Show disconnected icon on the dashboard" isLeaf="false">
+            <elementDefinition Id="1623cac6-ca9f-44ff-b07a-53951f18b808" />
+            <flowNodeTargets>
+              <controlFlow Id="832a4251-88cc-4523-b343-d53b1c91818b" isLeaf="false">
+                <opaqueActionMoniker Id="a56f1f12-b75b-4eee-9869-fd0ab279a707" LastKnownName="Update last refresh time" />
+                <elementDefinition Id="7f96c058-6ca4-410e-9747-e16f373753ae" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="a56f1f12-b75b-4eee-9869-fd0ab279a707" name="Update last refresh time" isLeaf="false">
+            <elementDefinition Id="29f2aaec-6ab5-48e1-9002-9eeb24cb9312" />
+            <flowNodeTargets>
+              <controlFlow Id="ee7d4b79-06c4-46f7-95d4-1d815718ca10" isLeaf="false">
+                <opaqueActionMoniker Id="d880763d-450c-400b-9a9f-bcb4c3d66921" LastKnownName="Loop on the vehicles and check their connection status" />
+                <elementDefinition Id="62c2446c-254b-4488-a7b0-55091cceaca6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="cd5b4c16-0a9d-4c97-92fa-e1d407dc2df7" name="AltenSonar.Modeling">
+    <elementDefinition Id="8ef7cb2f-6a18-4d09-ba75-cde8ced82a91" />
+  </package>
+</activityRootModel>

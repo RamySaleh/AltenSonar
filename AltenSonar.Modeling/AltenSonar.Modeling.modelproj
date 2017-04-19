@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0d292833-c089-4ee8-af70-ecfa54c10c72}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>AltenSonar.Modeling</Name>
+    <RootNamespace>AltenSonar.Modeling</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="Dashboard.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dashboard.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Dashboard.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Dashboard.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Dashboard.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Dashboard.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\AltenSonar.Modeling.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AltenSonar.Core\AltenSonar.Core.csproj">
+      <Name>AltenSonar.Core</Name>
+      <Project>{a9dd6ff1-77b2-4489-8881-fa5ec4f24ba5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AltenSonar.Infrastructure\AltenSonar.Infrastructure.csproj">
+      <Name>AltenSonar.Infrastructure</Name>
+      <Project>{86f7070f-e59f-42a6-a782-6cf8c7a376e8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AltenSonar\AltenSonar.csproj">
+      <Name>AltenSonar</Name>
+      <Project>{e4abdfff-efbc-4a9a-8222-9940878ebe8d}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="AltenSonar.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="AltenSonar.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>AltenSonar.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="AltenSonar.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>AltenSonar.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+</Project>
