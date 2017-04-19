@@ -24,6 +24,13 @@ function updateStatusOnDashboard(customers) {
             updateVehicleStatusOnDashboard(currentVehicle.id, currentVehicle.Status);
         }
     }
+    showLastRefreshTime();
+}
+
+// Updates the last refresh time label (hh:mm)
+function showLastRefreshTime() {
+    var date = new Date();
+    document.getElementById('lblLastRefresh').innerHTML = 'Last refresh ( ' + ("0" + (date.getHours() % 12)).slice(-2) + ' : ' + date.getMinutes() + ' )';
 }
 
 // Updates the status of each vehicle on the dashboard
