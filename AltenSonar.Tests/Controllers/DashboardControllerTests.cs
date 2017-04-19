@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 using AltenSonar.Controllers;
 using System.Web.Mvc;
 using AltenSonar.Core.Entities;
+using AltenSonar.DependencyInjection;
 
 namespace AltenSonar.Tests.Controllers
 {
     [TestClass]
     public class DashboardControllerTests
     {
+        [ClassInitialize]
+        public static void Setup(TestContext testContext)
+        {
+            IocContainer.RegisterDependencies();
+        }
+
         [TestMethod]
         public void DashboardControllerReturnsResult()
         {
@@ -34,7 +41,6 @@ namespace AltenSonar.Tests.Controllers
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
-
             var model = result.Model as List<Customer>;
 
             // Assert

@@ -1,8 +1,12 @@
-﻿using AltenSonar.Infrastructure.ConnectionCheckers;
+﻿using AltenSonar.Core.Entities;
+using AltenSonar.Core.Interfaces;
+using AltenSonar.Infrastructure.ConnectionCheckers;
 using AltenSonar.Infrastructure.Repos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +16,24 @@ namespace AltenSonar.Tests.ConnectionChecker
     [TestClass]
     public class FakeConnectionCheckerTests
     {
+        private static ICustomersRepo customersRepo;
+
+        [ClassInitialize]
+        public static void Setup(TestContext testContext)
+        {
+            // Arrange
+            var sampleDocuments = File.ReadAllText(@"..\..\SampleDocuments.json");
+            var fakeCustomersList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Customer>>(sampleDocuments);
+            var customersRepoMoq = new Mock<ICustomersRepo>();
+            customersRepoMoq.Setup(x => x.GetCustomers()).Returns(() => fakeCustomersList);
+            customersRepo = customersRepoMoq.Object;
+        }
+
         [TestMethod]
         public void FakeConnectionCheckerChangesVehicleStatus()
         {
             // Arrange
-            var customers = new FakeCustomersRepo().GetCustomers();
+            var customers = customersRepo.GetCustomers();
             var connectionChecker = new FakeConnectionChecker();
 
             // Act
@@ -33,7 +50,7 @@ namespace AltenSonar.Tests.ConnectionChecker
         public void FakeConnectionCheckerReturnsRandomVehicleStatus()
         {
             // Arrange
-            var customers = new FakeCustomersRepo().GetCustomers();
+            var customers = customersRepo.GetCustomers();
             var connectionChecker = new FakeConnectionChecker();
 
             // Act
