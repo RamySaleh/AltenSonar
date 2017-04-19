@@ -1,7 +1,7 @@
 ﻿function checkVehiclesConnectionStatus(customers) {
     jQuery.support.cors = true;
     $.ajax({
-        url: 'http://localhost:6514/api/ConnectionChecker',
+        url: '/api/ConnectionChecker',
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify(customers),
