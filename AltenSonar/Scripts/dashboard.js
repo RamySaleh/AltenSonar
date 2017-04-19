@@ -30,13 +30,13 @@ function updateStatusOnDashboard(customers) {
 // Updates the last refresh time label (hh:mm)
 function showLastRefreshTime() {
     var date = new Date();
-    document.getElementById('lblLastRefresh').innerHTML = 'Last refresh ( ' + ("0" + (date.getHours() % 12)).slice(-2) + ' : ' + date.getMinutes() + ' )';
+    document.getElementById('lblLastRefresh').innerHTML = 'Last refresh ( ' + ("0" + (date.getHours() % 12)).slice(-2) + ' : ' + ("0" + (date.getMinutes() % 12)).slice(-2) + ' )';
 }
 
 // Updates the status of each vehicle on the dashboard
 function updateVehicleStatusOnDashboard(vehicleId, status) {
     var vehicleStatusCellId = '#' + vehicleId;
-    $(vehicleStatusCellId)[0].className = status ? 'glyphicon glyphicon-ok vehicle-td' : 'glyphicon glyphicon-remove vehicle-td';
+    $(vehicleStatusCellId)[0].className = status ? 'glyphicon glyphicon-ok-circle vehicle-td' : 'glyphicon glyphicon-remove-circle vehicle-td';
     $(vehicleStatusCellId)[0].setAttribute("data-status", status);
 }
 

@@ -5,29 +5,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Dashboard</h2>
-
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/Content/Dashboard.css" />    
+    <link rel="stylesheet" href="~/Content/Dashboard.css" />
     <script src="@Url.Content("~/Scripts/dashboard.js")"></script>
 </head>
 
-<div>
-    <b style="margin-left:30px" class="filterLabelFont">Name : </b><input type="text" id="txtCustomerNameSearch" onkeyup="filterCustomers()">
-    <b style="margin-left:80px" class="filterLabelFont">Status : </b> <select id="optVehicleStatus" onchange="filterCustomers()">
+<div class="panel panel-default filterPanel">    
+    <b style="margin-left:30px;margin-right:10px" class="filterLabelFont">Name : </b><input type="text" id="txtCustomerNameSearch" onkeyup="filterCustomers()">
+    <b style="margin-left:80px;margin-right:10px" class="filterLabelFont">Status : </b> <select id="optVehicleStatus" onchange="filterCustomers()">
         <option value="">All</option>
         <option value="true">Connected</option>
         <option value="false">Disconnected</option>
     </select>
 </div>
-<table class="table" id="tblCustomers">
+<table class="table customerTable" id="tblCustomers">
     @foreach (var customer in Model)
     {
         <tr class="customerRow" id="@customer.id">
             <td>
-                <div><b>@Html.DisplayNameFor(model => model.Name) : </b>@Html.DisplayFor(modelItem => customer.Name)</div>
-                <div><b>@Html.DisplayNameFor(model => model.Address) : </b>@Html.DisplayFor(modelItem => customer.Address)</div>
+                <div class="glyphicon glyphicon-user userIconDiv"></div>
+                <div style="margin-left:30px">
+                    <div><b>@Html.DisplayNameFor(model => model.Name) : </b>@Html.DisplayFor(modelItem => customer.Name)</div>
+                    <div><b>@Html.DisplayNameFor(model => model.Address) : </b>@Html.DisplayFor(modelItem => customer.Address)</div>
+                </div>
                 <div>
                     <table class="table vehicleTable">
                         <tr>
@@ -57,11 +58,14 @@
                 </div>
 
             </td>
-        </tr>        
+        </tr>
     }
 
 </table>
-<p id="lblLastRefresh"></p>
+<footer>
+    <p id="lblLastRefresh"></p>
+</footer>
+
 
 <script type="text/javascript">
     $( document ).ready(function() {

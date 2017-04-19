@@ -1,29 +1,46 @@
 ﻿#txtCustomerNameSearch {
-    width: 100%; /* Full-width */
-    font-size: 14px; /* Increase font-size */
-    padding: 5px 18px 5px 38px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
+    width: 100%; 
+    font-size: 14px;
+    padding: 5px 18px 5px 38px;
+    border: 1px solid #ddd; 
+    margin-bottom: 12px;
 }
 
 #optVehicleStatus {
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 5px 18px 5px 45px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
+    width: 100%;
+    font-size: 16px;
+    padding: 5px 18px 5px 45px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
 }
 
-.filterLabelFont{
-    font-size:18px
+.filterPanel {
+    padding-top: 10px;
+    margin-top: 10px;
 }
 
-.vehicleTable{
-    margin-top:20px;
-    margin-left:10px
+.filterLabelFont {
+    font-size: 16px;
+    color: dimgray;
 }
 
-.vehicle-td{
-    font-size:16px;
-    margin-left:25px
+.vehicleTable {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+.customerTable {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.vehicle-td {
+    font-size: 20px;
+    margin-left: 25px;
+}
+
+.userIconDiv{
+    float:left;
+    margin-top:10px
 }
